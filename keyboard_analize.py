@@ -1,10 +1,10 @@
-# -*- coding: gbk -*- #
+# -*- coding: utf-8 -*- #
 import re
 import chardet
 from multiprocessing import Pool
 
 f = open("d:\\install.txt","r")
-lines = f.readlines() #读取全部内容
+lines = f.readlines() #璇诲彇鍏ㄩ儴鍐呭
 
 def WindowsName():
     rawlist = []
@@ -12,25 +12,7 @@ def WindowsName():
         if line[0:11] == 'WindowName:':
             #print chardet.detect(line)['encoding']
             #print type(line)
-            '''
-            stri = ''
-            if chardet.detect(line)['encoding'] == 'ISO-8859-2':
-                stri = line.decode("ISO-8859-2")
-                stri = stri.encode("gbk")
-            #if chardet.detect(line)['encoding'] == 'GB2312':
-                #stri = line.decode("GB2312")
-                #stri = stri.encode("utf-8")
-            if chardet.detect(line)['encoding'] == 'KOI8-R':
-                stri = line.decode("KOI8-R")
-                stri = stri.encode("gbk")
-            if chardet.detect(line)['encoding'] == 'windows-1252':
-                stri = line.decode("windows-1252")
-                stri = stri.encode("gbk")
-            if chardet.detect(line)['encoding'] == 'ascii':
-                stri = line.decode("ascii")
-                stri = stri.encode("gbk")
-                '''
-                #print chardet.detect(stri)['encoding']
+            #print chardet.detect(stri)['encoding']
             rawlist.append(line)
     return rawlist
 
@@ -70,9 +52,9 @@ if __name__=='__main__':
             print diction
 
     else:
+        print 'Numberic WRONG'
         print(len(WindowsName))
         print(len(Time))
-        print 'Numberic WRONG'
         print(WindowsName)
         print(Time)
     print 'Program Finished'
