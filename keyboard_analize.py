@@ -1,18 +1,23 @@
 # -*- coding: utf-8 -*- #
 import re
-import chardet
+import xlwt
+#import chardet
 from multiprocessing import Pool
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
-f = open("d:\\install.txt","r")
-lines = f.readlines() #读取全部内容
+txtfile = open("d:\\install.txt","r")
+lines = txtfile.readlines() #读取全部内容
+
+xlsfile = xlwt.Workbook()
+table = xlsfile.add_sheet('Windows+Time',cell_overwrite_ok=True)
 
 def WindowsName():
     rawlist = []
     for line in lines:
         if line[0:11] == 'WindowName:':
-            #print chardet.detect(line)['encoding']
-            #print type(line)
-            #print chardet.detect(stri)['encoding']
+            line = unicode(line, errors='ignore')
             rawlist.append(line)
     return rawlist
 
@@ -22,8 +27,8 @@ def Time():
         r1 = r'\bTime:\b.*'
         r2 = re.findall(r1,line)
         if r2 != []:
-            strr = str(r2[0])
-            rawlist.append(strr)
+            str_r2 = str(r2[0])
+            rawlist.append(str_r2)
     return rawlist
 
 if __name__=='__main__':
@@ -34,22 +39,16 @@ if __name__=='__main__':
         print 'Numberic correct:'+str(len(WindowsName))
         #print(WindowsName)
         #print(Time)
-        x = 0
-        diction = []
-        while x < len(WindowsName):
-            i = WindowsName[x]
-            diction.append(i)
-            o = Time[x]
-            diction.append(o)
-            x = x + 1
+        i=1
+        while i<=len(WindowsName):
+            table.write(i, 1, WindowsName[i-1])
+            i=i+1
+        u=1
+        while u<=len(Time):
+            table.write(u, 2, Time[u-1])
+            u=u+1
 
-        if len(diction) == len(WindowsName)*2:
-            print 'Numberic correct:'+str(len(diction))
-            print diction
-        else:
-            print 'Numberic WRONG'
-            print len(diction)
-            print diction
+        xlsfile.save('test.xls')
 
     else:
         print 'Numberic WRONG'
