@@ -12,11 +12,13 @@ if __name__ == "__main__":
 
     for x in lines:
         x = x.replace("%7qw(","CU")
-        x = x.replace("%128)","=\n")
+        x = x.replace("%128)","=\\n")
         x = x.replace("%$6rd)",",")
-        b=base64.decodestring(x)
-        a = urllib.unquote(b)
-        lst2.append(a)
+        m = x.split('\\n')
+        for mm in m:
+            b = base64.decodestring(mm)
+            a = urllib.unquote(b)
+            lst2.append(a)
 
     wrfile2 = open('d://rmm.txt', 'a')
 
