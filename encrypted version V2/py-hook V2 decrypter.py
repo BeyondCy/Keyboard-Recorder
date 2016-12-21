@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*- #
+
+__author__ = 'cyankw'
 import urllib, base64
 from multiprocessing import Pool
 

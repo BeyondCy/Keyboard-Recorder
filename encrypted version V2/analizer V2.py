@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*- #
+
+__author__ = 'cyankw'
 import xlwt
 # import chardet
 from multiprocessing import Pool
