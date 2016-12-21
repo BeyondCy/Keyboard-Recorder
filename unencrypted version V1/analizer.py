@@ -1,17 +1,19 @@
 # -*- coding: utf-8 -*- #
+
+__author__ = 'cyankw'
 import xlwt
-#import chardet
+# import chardet
 from multiprocessing import Pool
 
-txtfile = open("d:\\install.txt","r")
-lines = txtfile.readlines() #读取全部内容      <type 'list'>
+txtfile = open("d:\\install.txt", "r")
+lines = txtfile.readlines()  # 读取全部内容      <type 'list'>
 
 xlsfile = xlwt.Workbook()
-table = xlsfile.add_sheet('sheet',cell_overwrite_ok=True)
+table = xlsfile.add_sheet('sheet', cell_overwrite_ok = True)
 first_col = table.col(0)
 second_col = table.col(1)
-first_col.width=256*100
-second_col.width=256*25
+first_col.width = 256 * 115
+second_col.width = 256 * 25
 
 def WindowsName():
     rawlist = []
@@ -39,7 +41,18 @@ def Key():
             else:
                 break
             while lines[i][0:9] == '     Key:':
-                temp = lines[i][9:]+'|'
+                temp = ' '+lines[i][9:17]
+
+                temp = temp.replace('Lcontrol', 'Ctrl')
+                temp = temp.replace('Lmenu', 'Alt')
+                temp = temp.replace('Lshift', 'Shift')
+                temp = temp.replace('Lwin', 'Win')
+                temp = temp.replace('Return', 'Enter')
+                temp = temp.replace('Rcontrol', 'Ctrl')
+                temp = temp.replace('Rshift', 'Shift')
+                temp = temp.replace('Rmenu', 'Alt')
+                temp = temp.replace('Escape', 'Esc')
+                
                 rawlist2.append(temp)
                 if i<len(lines)-1:
                     i=i+1
@@ -50,7 +63,7 @@ def Key():
             break
     return rawlist
 
-if __name__=='__main__':
+if __name__ == '__main__':
     p = Pool(processes=8)
     WindowsName = WindowsName()
     Time = Time()
@@ -59,18 +72,21 @@ if __name__=='__main__':
         print 'Numberic correct:'+str(len(WindowsName))
         #print(WindowsName)
         #print(Time)
+
         i=1
         while i<=len(WindowsName):
             table.write(i, 0, WindowsName[i-1])
             i=i+1
+
         u=1
         while u<=len(Time):
             table.write(u, 1, Time[u-1])
             u=u+1
+
         v=1
         while v<=len(Key):
-            if len(Key[v-1]) >= 1243:
-                Key[v-1] = Key[v-1][0:1243]
+            if len(Key[v-1]) >= 1500:
+                Key[v-1] = Key[v-1][0:1500]
             table.write(v, 2, Key[v - 1])
             v=v+1
         xlsfile.save('test.xls')
