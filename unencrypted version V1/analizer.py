@@ -6,8 +6,9 @@ import xlwt
 from multiprocessing import Pool
 
 txtfile = open("d:\\install.txt", "r")
-lines = txtfile.readlines()  # 读取全部内容      <type 'list'>
+lines = txtfile.readlines()  #<type 'list'>
 
+#打开表格
 xlsfile = xlwt.Workbook()
 table = xlsfile.add_sheet('sheet', cell_overwrite_ok = True)
 first_col = table.col(0)
@@ -15,6 +16,15 @@ second_col = table.col(1)
 first_col.width = 256 * 115
 second_col.width = 256 * 25
 
+#若第一行不是"---------\n"，则进行删除，防止逻辑出错
+L0 = lines[0]
+if L0 == "---------\n":
+	pass
+else:
+	while lines[0] != "---------\n":
+		del(lines[0])
+
+#WindowsName函数
 def WindowsName():
     rawlist = []
     for line in lines:
@@ -23,6 +33,7 @@ def WindowsName():
             rawlist.append(line)
     return rawlist
 
+#Time函数
 def Time():
     rawlist = []
     for line in lines:
@@ -30,6 +41,7 @@ def Time():
             rawlist.append(line[5:])
     return rawlist
 
+#Key函数
 def Key():
     rawlist = []
     i=0
@@ -69,7 +81,7 @@ if __name__ == '__main__':
     Time = Time()
     Key =Key()
     if len(WindowsName) == len(Time):
-        print 'Numberic correct:'+str(len(WindowsName))
+        print 'Numberic =:'+str(len(WindowsName))
         #print(WindowsName)
         #print(Time)
 
