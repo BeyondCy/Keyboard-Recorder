@@ -1,4 +1,4 @@
-# keyboard_recorder 
+# Keyboard_Recorder 
 ### English 
 ### This program allows you to  record keyboard input and the windows title when you have input. It save a .txt file on the target PC, and record all data. 
  The V1 is an un encryped version, using unencrypted text saving in an text file. 
