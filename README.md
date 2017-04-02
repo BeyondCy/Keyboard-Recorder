@@ -7,9 +7,7 @@
  
  e.g.
 
----------
 WindowName: Keyboard-Recorder/README.md at master · cyankw/Keyboard-Recorder - Mozilla Firefox 132440
-
 Time:2017-04-02 22:42:23.001000 
         Click:mouse left up(921, 53)22:42:23
         
@@ -22,9 +20,8 @@ Time:2017-04-02 22:42:23.001000
      Key:R-22:42:26  
      Key:D-22:42:26  
      Key:Return-22:42:26  
----------
-WindowName: keyboard_百度搜索 - Mozilla Firefox 132440
 
+WindowName: keyboard_百度搜索 - Mozilla Firefox 132440
 Time:2017-04-02 22:42:30.884000
         Click:mouse left up(921, 51)22:42:30
         
@@ -47,6 +44,7 @@ Time:2017-04-02 22:42:30.884000
 
 
  The V2 is an encrypted one,which is THE FINAL WORK (Using base64 and url encode, with several other [.replace()] ) you can use the unencrypter.py to get it readable.
+ 
 #### Analyzer.py in both path allows you to create an excel table with elected data for other future analyzes.
  However, support in Chinese isn't good enough, still working on it. Other function like sending the .txt file to mail box and delet the local record file, are still in developing. 
  
@@ -59,9 +57,7 @@ Time:2017-04-02 22:42:30.884000
  
 e.g.
 
----------
 WindowName: Keyboard-Recorder/README.md at master · cyankw/Keyboard-Recorder - Mozilla Firefox 132440
-
 Time:2017-04-02 22:42:23.001000 
         Click:mouse left up(921, 53)22:42:23
         
@@ -74,9 +70,8 @@ Time:2017-04-02 22:42:23.001000
      Key:R-22:42:26  
      Key:D-22:42:26  
      Key:Return-22:42:26  
----------
-WindowName: keyboard_百度搜索 - Mozilla Firefox 132440
 
+WindowName: keyboard_百度搜索 - Mozilla Firefox 132440
 Time:2017-04-02 22:42:30.884000
         Click:mouse left up(921, 51)22:42:30
         
@@ -99,5 +94,6 @@ Time:2017-04-02 22:42:30.884000
 
 
  V2 是加密版本 使用base64 和 url 加密 （并使用多组.replace()替换部分字符串，防止直接被解码 ) 你可以使用encrypter.py进行解码
+ 
 #### 两个目录中的Analyzer.py 可以生成相应版本的数据excel表格，方便后续的分析
  中文支持尚且不够完善，努力中。定期发送至邮箱并清理本地文件的功能也在开发中
