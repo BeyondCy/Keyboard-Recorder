@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*- #
 
 __author__ = 'cyankw'
+
+#version = 1.1
+
 import pythoncom
 import pyHook
 import datetime
