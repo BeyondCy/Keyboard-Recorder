@@ -43,33 +43,39 @@ def Time():
 
 #Key函数
 def Key():
-    rawlist = []
+    global rawlist
+    rawlist=[]
     i=0
     while i <= len(lines):
         rawlist2 = []
         if lines[i] == '---------\n':
             if i+3 < len(lines):
                 i=i+3
-            else:
-                break
-            while lines[i][0:9] == '     Key:':
-                temp = ' '+lines[i][9:17]
+                while lines[i][0:9] == '        C':
+                    rawlist2.append('Click   ')
+                    if i < len(lines) - 1:
+                        i = i + 1
+                    else:
+                        break
+                while lines[i][0:9] == '     Key:':
+                    temp = ' ' + lines[i][9:17]
 
-                temp = temp.replace('Lcontrol', 'Ctrl')
-                temp = temp.replace('Lmenu', 'Alt')
-                temp = temp.replace('Lshift', 'Shift')
-                temp = temp.replace('Lwin', 'Win')
-                temp = temp.replace('Return', 'Enter')
-                temp = temp.replace('Rcontrol', 'Ctrl')
-                temp = temp.replace('Rshift', 'Shift')
-                temp = temp.replace('Rmenu', 'Alt')
-                temp = temp.replace('Escape', 'Esc')
-                
-                rawlist2.append(temp)
-                if i<len(lines)-1:
-                    i=i+1
-                else:
-                    break
+                    temp = temp.replace('Lcontrol', 'Ctrl')
+                    temp = temp.replace('Lmenu', 'Alt')
+                    temp = temp.replace('Lshift', 'Shift')
+                    temp = temp.replace('Lwin', 'Win')
+                    temp = temp.replace('Return', 'Enter')
+                    temp = temp.replace('Rcontrol', 'Ctrl')
+                    temp = temp.replace('Rshift', 'Shift')
+                    temp = temp.replace('Rmenu', 'Alt')
+                    temp = temp.replace('Escape', 'Esc')
+
+                    rawlist2.append(temp)
+                    if i < len(lines) - 1:
+                        i = i + 1
+                    else:
+                        break
+
             rawlist.append(rawlist2)
         else:
             break

