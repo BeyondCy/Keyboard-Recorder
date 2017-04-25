@@ -1,4 +1,7 @@
 # Keyboard_Recorder 
+
+## P.S. Version 2 haven't update yet, don't use it  V2尚未更新，不建议使用
+
 ## English 英文
 ### This program allows you to  record keyboard input and the windows title when you have input. It save a .txt file on the target PC, and record all data. 
 ### VERSION 1
